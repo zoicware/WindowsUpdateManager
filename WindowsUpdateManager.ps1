@@ -16,9 +16,11 @@ catch {
     Write-Host 'Installing Powershell Update Module...'
     Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force | Out-Null  
     Install-Module PSWindowsUpdate -SkipPublisherCheck -Force | Out-Null
-    Set-ExecutionPolicy Unrestricted -Force
-    Import-Module -Name PSWindowsUpdate -Force
     Clear-Host
+}
+finally{
+Set-ExecutionPolicy Unrestricted -Force
+Import-Module -Name PSWindowsUpdate -Force
 }
 
 function getAutoUpdates { 
