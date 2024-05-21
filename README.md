@@ -7,5 +7,6 @@ Working on Windows 10 and 11
 
 Run Script from Console
 ````
+Set-ExecutionPolicy Unrestricted -Force
 iwr https://raw.githubusercontent.com/zoicware/WindowsUpdateManager/main/WindowsUpdateManager.ps1 | iex
 ````
