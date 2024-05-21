@@ -18,9 +18,9 @@ catch {
     Install-Module PSWindowsUpdate -SkipPublisherCheck -Force | Out-Null
     Clear-Host
 }
-
-Set-ExecutionPolicy Unrestricted -Force
+finally{
 Import-Module -Name PSWindowsUpdate -Force
+}
 
 
 function getAutoUpdates { 
