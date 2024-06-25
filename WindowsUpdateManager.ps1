@@ -18,8 +18,8 @@ catch {
     Install-Module PSWindowsUpdate -SkipPublisherCheck -Force | Out-Null
     Clear-Host
 }
-finally{
-Import-Module -Name PSWindowsUpdate -Force
+finally {
+    Import-Module -Name PSWindowsUpdate -Force
 }
 
 
@@ -375,11 +375,11 @@ $btn8.Size = New-Object Drawing.Size(130, 35)
 $btn8.Add_Click({
         Write-Host '-----------------DEFERING FEATURE AND QUALITY UPDATES FOR [MAX] DAYS-----------------'
         Reg.exe add 'HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate' /v 'DeferFeatureUpdates' /t REG_DWORD /d '1' /f >$null
-        Reg.exe add 'HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate' /v 'DeferFeatureUpdatesPeriodInDays' /t REG_DWORD /d '365' /f >$null
+        Reg.exe add 'HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate' /v 'DeferFeatureUpdatesPeriodInDays' /t REG_DWORD /d '730' /f >$null
         Reg.exe add 'HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate' /v 'DeferQualityUpdates' /t REG_DWORD /d '1' /f >$null
-        Reg.exe add 'HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate' /v 'DeferQualityUpdatesPeriodInDays' /t REG_DWORD /d '30' /f >$null
+        Reg.exe add 'HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate' /v 'DeferQualityUpdatesPeriodInDays' /t REG_DWORD /d '730' /f >$null
         gpupdate /force
-        Write-Host '-----------------DEFERED FEATURE UPDATES[365d] QUALITY UPDATES[30d]-----------------'  
+        Write-Host '-----------------DEFERED FEATURE UPDATES QUALITY UPDATES-----------------'  
     })
 $form.Controls.Add($btn8)
 $btn8.BackColor = [System.Drawing.Color]::FromArgb(30, 30, 30)
